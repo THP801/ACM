@@ -213,9 +213,9 @@ class ACEGVAR(medical_treatment,actions) {
         displayName = CSTRING(ApplyPressure);
         icon = "";
         allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg"};
-        items[] = {"ACM_PressureBandage","ACE_FieldDressing"};
+        items[] = {"ACM_PressureBandage","ACE_fieldDressing","ACE_quikClot","ACE_packingBandage","ACE_elasticBandage"};
         condition = QUOTE(!(_patient call ACEFUNC(common,isAwake)) && !(alive (_patient getVariable [ARR_2(QQGVAR(BVM_Medic),objNull)])));
-        callbackSuccess = QUOTE([ARR_3(_medic,_patient,false)] call FUNC(useBVM));
+        callbackSuccess = QUOTE([ARR_3(_medic,_patient,false)] call FUNC(applyPressure));
         ACM_cancelRecovery = 1;
-        ACM_menuIcon = "ACM_BVM";
+        ACM_menuIcon = "ACM_PressureBandage";
 };
