@@ -209,4 +209,13 @@ class ACEGVAR(medical_treatment,actions) {
         consumeItem = 0;
         callbackSuccess = QUOTE([ARR_4(_medic,_patient,_bodyPart,false)] call FUNC(setPulseOximeter));
     };
+    class ApplyPressure: UseStethoscope {
+        displayName = CSTRING(ApplyPressure);
+        icon = "";
+        allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg"};
+        items[] = {"ACM_PressureBandage","ACE_FieldDressing"};
+        condition = QUOTE(!(_patient call ACEFUNC(common,isAwake)) && !(alive (_patient getVariable [ARR_2(QQGVAR(BVM_Medic),objNull)])));
+        callbackSuccess = QUOTE([ARR_3(_medic,_patient,false)] call FUNC(useBVM));
+        ACM_cancelRecovery = 1;
+        ACM_menuIcon = "ACM_BVM";
 };
