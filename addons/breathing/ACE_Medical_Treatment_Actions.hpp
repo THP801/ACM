@@ -218,4 +218,5 @@ class ACEGVAR(medical_treatment,actions) {
         callbackSuccess = QUOTE([ARR_3(_medic,_patient,false)] call FUNC(applyPressure));
         ACM_cancelRecovery = 1;
         ACM_menuIcon = "ACM_PressureBandage";
+    };
 };
